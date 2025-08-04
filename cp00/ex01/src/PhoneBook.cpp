@@ -10,24 +10,24 @@ void PhoneBook::add_contact()
     std::string input;
 
     std::cout << "Enter First Name" << std::endl;
-    std::cin >> input;
-    Contacts[count].setFirstname(input);
+    std::getline(std::cin, input);
+    Contacts[count % 8].setFirstname(input);
 
     std::cout << "Enter Last Name" << std::endl;
-    std::cin >> input;
-    Contacts[count].setLastname(input);
+    std::getline(std::cin, input);
+    Contacts[count % 8].setLastname(input);
 
     std::cout << "Enter Nickname" << std::endl;
-    std::cin >> input;
-    Contacts[count].setNickname(input);
+    std::getline(std::cin, input);
+    Contacts[count % 8].setNickname(input);
 
     std::cout << "Enter Phone Number" << std::endl;
-    std::cin >> input;
-    Contacts[count].setPhonenumber(input);
+    std::getline(std::cin, input);
+    Contacts[count % 8].setPhonenumber(input);
 
     std::cout << "Enter Darkest Secret" << std::endl;
-    std::cin >> input;
-    Contacts[count].setDarkestsecret(input);
+    std::getline(std::cin, input);
+    Contacts[count % 8].setDarkestsecret(input);
     std::cout << std::endl;
 
     std::cout << "Contact create successfully !" << std::endl;
@@ -44,13 +44,11 @@ std::string formatData(const std::string& value)
 void    PhoneBook::search_contact()
 {
     int i;
-    int input;
+    int index;
+    std::string input;
 
     i = 0;
-    std::cout << "#__________";
-    std::cout << "___________";
-    std::cout << "___________";
-    std::cout << "__________#" << std::endl;
+    std::cout << "#___________________________________________#" << std::endl;
     while (i < count)
     {
         std::cout << "|" << std::setw(10) << i;
@@ -60,20 +58,20 @@ void    PhoneBook::search_contact()
         i++;
     }
     std::cout << "Enter the index of user :" << std::endl;
-    std::cin. >> input;
-    if (input < 9 && input > 0)
+    std::getline(std::cin, input);
+    std::stringstream ss(input);
+    ss >> index;
+    if (index < 9 && index >= 0)
     {
         std::cout << std::left << std::setw(10) << "First Name";
-        std::cout << ": " << Contacts[input].getFirstname() << std::endl;
+        std::cout << ": " << Contacts[index].getFirstname() << std::endl;
         std::cout << std::left << std::setw(10) << "Last Name";
-        std::cout << ": " <<Contacts[input].getLastname() << std::endl;
+        std::cout << ": " <<Contacts[index].getLastname() << std::endl;
         std::cout << std::left << std::setw(10) << "Nickname";
-        std::cout << ": " <<Contacts[input].getNickname() << std::endl;
+        std::cout << ": " <<Contacts[index].getNickname() << std::endl;
         std::cout << std::left << std::setw(10) << "Number";
-        std::cout << ": " <<Contacts[input].getPhonenumber() << std::endl;
+        std::cout << ": " << Contacts[index].getPhonenumber() << std::endl;
         std::cout << std::left << std::setw(10) << "Darkest Secret";
-        std::cout << ": " <<Contacts[input].getDarkestsecret() << std::endl;
+        std::cout << ": " <<Contacts[index].getDarkestsecret() << std::endl;
     }
-
 }
-//std::cout << Contacts[count].getFirstname() << std::endl;

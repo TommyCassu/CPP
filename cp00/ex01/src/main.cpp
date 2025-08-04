@@ -5,7 +5,7 @@ int main(void)
     PhoneBook pBook;
     std::string input;
 
-    while (1)
+    while (true)
     {
         std::cout << "Enter a Phone Number instruction  : ADD | SEARCH | EXIT" << std::endl;
         std::cout << "> ";
@@ -19,5 +19,4 @@ int main(void)
         else
             std::cout << "Enter a valid instruction please !" << std::endl;
     }
-    
 }
