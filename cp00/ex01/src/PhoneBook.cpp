@@ -32,7 +32,8 @@ void PhoneBook::add_contact()
 
     std::cout << "Contact create successfully !" << std::endl;
 
-    count++;
+    if (count <  8)
+        count++;
 }
 
 std::string formatData(const std::string& value)
@@ -60,8 +61,7 @@ void    PhoneBook::search_contact()
     std::cout << "Enter the index of user :" << std::endl;
     std::getline(std::cin, input);
     std::stringstream ss(input);
-    ss >> index;
-    if (index < 9 && index >= 0)
+    if (ss >> index && (index < 9 && index >= 0) && !Contacts[index].getFirstname().empty())
     {
         std::cout << std::left << std::setw(10) << "First Name";
         std::cout << ": " << Contacts[index].getFirstname() << std::endl;
@@ -74,4 +74,6 @@ void    PhoneBook::search_contact()
         std::cout << std::left << std::setw(10) << "Darkest Secret";
         std::cout << ": " <<Contacts[index].getDarkestsecret() << std::endl;
     }
+    else
+        std::cout << "Enter a valid index or contact have empty name";
 }
