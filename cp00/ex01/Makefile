@@ -6,19 +6,21 @@
 #    By: toto <toto@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/18 17:13:54 by toto              #+#    #+#              #
-#    Updated: 2025/11/18 17:28:38 by toto             ###   ########.fr        #
+#    Updated: 2025/11/18 17:33:53 by toto             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC 		= megaphone.cpp
+SRC 		= src/main.cpp src/PhoneBook.cpp src/Contact.cpp
 
 OBJS	 	= ${SRC:.cpp=.o}
 
-NAME		= megaphone
+NAME		= phonebook
+
+INCLUDES	= includes/
 
 CC 			= c++
 
-CFLAGS 		= -Wall -Werror -Wextra
+CFLAGS 		= -Wall -Werror -Wextra -I ${INCLUDES}
 
 all: ${NAME}
 

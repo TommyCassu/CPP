@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string.h>
-using namespace std;
 
 int main(int ac, char **av)
 {
@@ -18,14 +17,14 @@ int main(int ac, char **av)
             while (av[j][i])
             {
                 av[j][i] = toupper(av[j][i]);
-                cout << av[j][i];
+                std::cout << av[j][i];
                 i++;
             }
-            cout << " ";
+            std::cout << " ";
             j++;
         }
-        cout << endl;
+        std::cout << std::endl;
     }
     else
-        cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 }
