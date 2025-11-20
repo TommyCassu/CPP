@@ -6,7 +6,7 @@
 #    By: toto <toto@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/18 17:13:54 by toto              #+#    #+#              #
-#    Updated: 2025/11/18 17:33:53 by toto             ###   ########.fr        #
+#    Updated: 2025/11/20 01:40:07 by toto             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INCLUDES	= includes/
 
 CC 			= c++
 
-CFLAGS 		= -Wall -Werror -Wextra -I ${INCLUDES}
+CFLAGS 		= -Wall -Werror -Wextra -std=c++98 -I ${INCLUDES}
 
 all: ${NAME}
 

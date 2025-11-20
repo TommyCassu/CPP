@@ -6,15 +6,15 @@
 #    By: toto <toto@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/18 17:13:54 by toto              #+#    #+#              #
-#    Updated: 2025/11/20 01:40:15 by toto             ###   ########.fr        #
+#    Updated: 2025/11/20 01:39:47 by toto             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC 		= megaphone.cpp
+SRC 		= Account.cpp tests.cpp
 
 OBJS	 	= ${SRC:.cpp=.o}
 
-NAME		= megaphone
+NAME		= account
 
 CC 			= c++
 
