@@ -8,11 +8,12 @@
 class HumanB
 {
     public:
-        HumanB(std::string n, Weapon &w);
+        HumanB(std::string n);
         void attack();
+        void    setWeapon(Weapon &weapon);
     private:
         std::string name;
-        Weapon &weapon;
+        Weapon *weapon;
 };
 
 # endif
