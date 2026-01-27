@@ -2,6 +2,7 @@
 # define FIXED_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <math.h>
 
 class Fixed
@@ -23,10 +24,12 @@ class Fixed
         bool operator==(const Fixed &fixed) const;
         bool operator!=(const Fixed &fixed) const;
 
-        Fixed operator-(const Fixed &fixed);
-        Fixed operator*(const Fixed &fixed);
+        Fixed operator-(const Fixed &fixed) const;
+        Fixed operator*(const Fixed &fixed) const;
+        Fixed operator+(const Fixed &fixed) const;
+        Fixed operator/(const Fixed &fixed) const;
+
         Fixed &operator=(const Fixed &fixed);
-        Fixed operator+(const Fixed &fixed);
 
         Fixed &operator++(void);
         Fixed &operator--(void);

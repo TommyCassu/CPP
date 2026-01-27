@@ -2,10 +2,30 @@
 #include <iostream>
 #include <string>
 
+void    replace_data(std::string &new_content, const std::string &s1, const std::string &s2)
+{
+    unsigned int s1_lenght = s1.length();
+    size_t i = 0;
+
+    while (1)
+    {
+        i = new_content.find(s1, i);
+        if (i == std::string::npos)
+            break ;
+        new_content.erase(i, s1_lenght);
+        new_content.insert(i, s2);
+    }
+}
+
 int main(int ac, char **av)
 {
     if (ac == 4)
     {
+        if (av[2][0] == '\n' || av[3][0] == '\n')
+        {
+            std::cerr << " Error ! Please s1 or s2 can't be empty." << std::endl;
+            return (1); 
+        }
         std::string s1 = av[2];
         std::string s2 = av[3];
         std::string new_content;
@@ -28,21 +48,10 @@ int main(int ac, char **av)
                 new_content += file_line;
                 new_content += '\n';
             }
-            unsigned int s1_lenght = s1.length();
-            unsigned int s2_lenght = s2.length();
-            size_t i = 0;
-            while (1)
-            {
-                i = new_content.find(s1, i);
-                if (i == std::string::npos)
-                    break ;
-                new_content.erase(i, s1_lenght);
-                new_content.insert(i, s2);
-            }
+            replace_data(new_content, s1, s2);
+            
         }
-        
-
-        std::ofstream _file(file_replace);
+        std::ofstream _file(file_replace.c_str());
         _file << new_content;
         _file.close();
     }

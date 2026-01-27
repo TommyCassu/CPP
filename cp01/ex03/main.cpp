@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
-#include "includes/HumanA.hpp"
-#include "includes/HumanB.hpp"
-#include "includes/Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
 int main()
 {

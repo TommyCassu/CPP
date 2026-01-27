@@ -1,11 +1,9 @@
 #include <iostream>
-#include <string.h>
 
 int main(int ac, char **av)
 {
     int    i;
     int j;
-
 
     i = 0;
     j = 1;
@@ -27,4 +25,5 @@ int main(int ac, char **av)
     }
     else
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+    return (0);
 }

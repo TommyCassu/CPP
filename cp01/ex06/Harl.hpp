@@ -6,9 +6,6 @@
 
 class Harl
 {
-    public:
-        Harl(void);
-        void    complain(std::string level);
     private:
         void    debug(void);
         void    info(void);
@@ -20,7 +17,11 @@ class Harl
             void    (Harl::*func)();
         };
         harl_level level[4];
-        
+    public:
+        Harl();
+        ~Harl();
+        void    complain(std::string level);
+    
 };
 
 # endif

@@ -3,43 +3,43 @@
 /* CONSTRCUTOR */
 Fixed::Fixed() : value(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+   // std::cout << "Default constructor called" << std::endl;
 };
 
 Fixed::Fixed(const Fixed &fixed)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    //std::cout << "Copy constructor called" << std::endl;
     *this = fixed;
 }
 
 Fixed::Fixed(const int value)
 {
-    std::cout << "Int constructor called" << std::endl;
+    //std::cout << "Int constructor called" << std::endl;
     this->value = value * (1 << this->frac_bit);
 }
 
 Fixed::Fixed(const float value)
 {
-    std::cout << "Float constructor called" << std::endl;
+    //std::cout << "Float constructor called" << std::endl;
     this->value = static_cast<int>(roundf(value * (1 << this->frac_bit)));
 }
 
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
 }
 
 /* ---FUNCTIONS--- */
 
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
+    //std::cout << "getRawBits member function called" << std::endl;
     return (this->value);
 };
 
 void    Fixed::setRawBits(int const raw)
 {
-    std::cout << "setRawBits member function called" << std::endl;
+    //std::cout << "setRawBits member function called" << std::endl;
     this->value = raw;
 }
 
@@ -91,24 +91,29 @@ bool    Fixed::operator!=(const Fixed &f) const
     return (this->toFloat() != f.toFloat());
 }
 
-Fixed Fixed::operator-(const Fixed &f)
-{
-    return Fixed(this->toFloat() - f.toFloat());
-}
-
-Fixed Fixed::operator+(const Fixed &f)
+Fixed Fixed::operator+(const Fixed &f) const 
 {
     return Fixed(this->toFloat() + f.toFloat());
 }
 
-Fixed Fixed::operator*(const Fixed &f)
+Fixed Fixed::operator-(const Fixed &f) const
+{
+    return Fixed(this->toFloat() - f.toFloat());
+}
+
+Fixed Fixed::operator*(const Fixed &f) const
 {
     return Fixed(this->toFloat() * f.toFloat());
 }
 
+Fixed Fixed::operator/(const Fixed &f) const
+{
+    return Fixed(this->toFloat() / f.toFloat());
+}
+
 Fixed &Fixed::operator=(const Fixed &f)
 {
-    std::cout << "Copy assignement operator called" << std::endl;
+    //std::cout << "Copy assignement operator called" << std::endl;
 	if (this != &f)
 		this->value = f.getRawBits();
 	return (*this);

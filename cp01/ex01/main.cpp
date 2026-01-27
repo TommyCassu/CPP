@@ -1,5 +1,7 @@
 #include "Zombie.hpp"
 
+Zombie *zombieHorde(int N, std::string name);
+
 int main(void)
 {
     int n;
@@ -9,5 +11,5 @@ int main(void)
     for (int i = 0; i < n; i++)
         Zombiezz[i].announce();
     delete[] Zombiezz;
-    
+    return (0);
 }

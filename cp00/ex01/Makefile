@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: toto <toto@student.42.fr>                  +#+  +:+       +#+         #
+#    By: tcassu <tcassu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/18 17:13:54 by toto              #+#    #+#              #
-#    Updated: 2025/11/20 01:40:07 by toto             ###   ########.fr        #
+#    Updated: 2026/01/26 05:41:54 by tcassu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC 		= src/main.cpp src/PhoneBook.cpp src/Contact.cpp
+SRC 		= main.cpp PhoneBook.cpp Contact.cpp
 
 OBJS	 	= ${SRC:.cpp=.o}
 

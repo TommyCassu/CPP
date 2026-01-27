@@ -1,6 +1,6 @@
 # include "Harl.hpp"
 
-Harl::Harl(void)
+Harl::Harl()
 {
     this->level[0].level_name = "DEBUG";
     this->level[0].func = &Harl::debug;
@@ -10,7 +10,12 @@ Harl::Harl(void)
     this->level[2].func = &Harl::warning;
     this->level[3].level_name = "ERROR";
     this->level[3].func = &Harl::error;
+    std::cout << "Harl default constructor called." << std::endl;
 };
+Harl::~Harl()
+{
+    std::cout << "Harl destructor called." << std::endl;
+}
 
 void    Harl::debug(void)
 {

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: toto <toto@student.42.fr>                  +#+  +:+       +#+         #
+#    By: tcassu <tcassu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/18 17:13:54 by toto              #+#    #+#              #
-#    Updated: 2025/11/21 00:50:44 by toto             ###   ########.fr        #
+#    Updated: 2026/01/26 13:52:05 by tcassu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SRC 		= main.cpp Harl.cpp
 
 OBJS	 	= ${SRC:.cpp=.o}
 
-NAME		= Harl
+NAME		= harlFilter
 
 CC 			= c++
 

@@ -1,6 +1,16 @@
-# include "includes/HumanA.hpp"
+# include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon) {} ;
+HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon)
+{
+    std::cout << "HumanA default constructor called." << std::endl;
+
+};
+
+HumanA::~HumanA()
+{
+    std::cout << "HumanA default constructor called." << std::endl;
+
+};
 
 void    HumanA::attack(void)
 {
