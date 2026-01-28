@@ -16,6 +16,7 @@ ClapTrap::ClapTrap(std::string name)
     _hitPoint = 100;
     _energyPoint = 50;
     _attackDamage = 20;
+    std::cout << _name << std::endl;
     std::cout << "ClapTrap Constructor with param(s) called" << std::endl;
 }
 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: toto <toto@student.42.fr>                  +#+  +:+       +#+         #
+#    By: tcassu <tcassu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/18 17:13:54 by toto              #+#    #+#              #
-#    Updated: 2025/11/20 14:32:53 by toto             ###   ########.fr        #
+#    Updated: 2026/01/28 01:09:07 by tcassu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,9 @@ OBJS	 	= ${SRC:.cpp=.o}
 
 NAME		= unnecessary_violence
 
-INCLUDES	= includes/
-
 CC 			= c++
 
-CFLAGS 		= -Wall -Werror -Wextra -std=c++98 -I ${INCLUDES}
+CFLAGS 		= -Wall -Werror -Wextra -std=c++98
 
 all: ${NAME}
 
