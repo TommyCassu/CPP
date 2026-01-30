@@ -1,6 +1,6 @@
 #include "Animal.hpp"
 
-Animal::Animal()
+Animal::Animal() : _type("Undefined")
 {
     std::cout << "Animal Default constructor called" << std::endl;
 }

@@ -11,7 +11,7 @@ int main(int ac, char **av)
 	}
 	else
 	{
-		std::cerr << "Error please respect usage : ./harlFilter valid_level" << std::endl;
+		std::cout << "Error please respect usage : ./harlFilter valid_level" << std::endl;
 		return (1);
 	}
 	return (0);

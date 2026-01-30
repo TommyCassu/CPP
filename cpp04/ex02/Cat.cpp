@@ -8,6 +8,7 @@ Cat::Cat() : Animal("Cat")
 
 Cat::Cat(const Cat &cat) : Animal("Dog")
 {
+    *this = cat;
     this->brain = new Brain(*cat.brain);
     std::cout << "Cat Copy constructor called" << std::endl;
 }
@@ -30,12 +31,7 @@ Cat::~Cat()
     std::cout << "Cat Destructor called" << std::endl;
 }
 
-void    Cat::makeSound() const
-{
-    std::cout << "Miaou Miaou" << std::endl;
+void	Cat::makeSound() const {
+std::cout << "Miaou Miaou" << std::endl;
 }
 
-Brain *Cat::manageBrain() const
-{
-    return (this->brain);
-}

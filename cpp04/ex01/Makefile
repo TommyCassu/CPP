@@ -6,15 +6,15 @@
 #    By: tcassu <tcassu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/18 17:13:54 by toto              #+#    #+#              #
-#    Updated: 2026/01/22 06:29:21 by tcassu           ###   ########.fr        #
+#    Updated: 2026/01/30 17:28:52 by tcassu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC 		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRC 		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
 OBJS	 	= ${SRC:.cpp=.o}
 
-NAME		= ScavTrap
+NAME		= Brain
 
 CC 			= c++
 

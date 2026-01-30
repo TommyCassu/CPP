@@ -12,7 +12,6 @@ FragTrap::FragTrap() : ClapTrap("FragTrap")
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-    _name = name;
     _hitPoint = 100;
     _energyPoint = 100;
     _attackDamage = 30;
@@ -32,10 +31,13 @@ FragTrap::~FragTrap()
 
 FragTrap &FragTrap::operator=(const FragTrap &fragtrap)
 {
-    this->_name = fragtrap._name;
-    this->_attackDamage = fragtrap._attackDamage;
-    this->_energyPoint = fragtrap._energyPoint;
-    this->_hitPoint = fragtrap._hitPoint;
+    if (this != &fragtrap)
+    {
+        this->_name = fragtrap._name;
+        this->_attackDamage = fragtrap._attackDamage;
+        this->_energyPoint = fragtrap._energyPoint;
+        this->_hitPoint = fragtrap._hitPoint;
+    }
     std::cout << "FragTrap Copy assignment operator called" << std::endl;
     return *this;
 }
@@ -44,7 +46,7 @@ FragTrap &FragTrap::operator=(const FragTrap &fragtrap)
 
 void    FragTrap::attack(const std::string& target)
 {
-    if (this->_hitPoint < 0)
+    if (this->_hitPoint == 0)
         std::cout << "FragTrap" << this->_name << " is already dead." << std::endl;
     else if (this->_energyPoint == 0)
         std::cout << "FragTrap" << this->_name << " don't have enough energy to attack." << std::endl;

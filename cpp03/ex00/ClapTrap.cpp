@@ -24,10 +24,13 @@ ClapTrap::~ClapTrap()
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &claptrap)
 {
-    this->_name = claptrap._name;
-    this->_attackDamage = claptrap._attackDamage;
-    this->_energyPoint = claptrap._energyPoint;
-    this->_hitPoint = claptrap._hitPoint;
+    if (this != &claptrap)
+    {
+        this->_name = claptrap._name;
+        this->_attackDamage = claptrap._attackDamage;
+        this->_energyPoint = claptrap._energyPoint;
+        this->_hitPoint = claptrap._hitPoint;
+    }
     std::cout << "ClapTrap Copy assignment operator called" << std::endl;
     return *this;
 }
@@ -36,7 +39,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &claptrap)
 
 void    ClapTrap::attack(const std::string& target)
 {
-    if (this->_hitPoint < 0)
+    if (this->_hitPoint == 0)
         std::cout << "ClapTrap" << this->_name << " is already dead." << std::endl;
     else if (this->_energyPoint == 0)
         std::cout << "ClapTrap" << this->_name << " don't have enough energy to attack." << std::endl;

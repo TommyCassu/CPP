@@ -23,7 +23,7 @@ int main(int ac, char **av)
     {
         if (av[2][0] == '\0' || av[3][0] == '\0')
         {
-            std::cerr << " Error ! Please s1 or s2 can't be empty." << std::endl;
+            std::cout << " Error ! Please s1 or s2 can't be empty." << std::endl;
             return (1); 
         }
         std::string s1 = av[2];
@@ -37,7 +37,7 @@ int main(int ac, char **av)
         
         if (!file.is_open())
         {
-            std::cerr << " Error ! Cannot open file, please verify if " << av[1] << " is a valid file" << std::endl;
+            std::cout << " Error ! Cannot open file, please verify if " << av[1] << " is a valid file" << std::endl;
             return (1); 
         }
         else
@@ -51,7 +51,7 @@ int main(int ac, char **av)
             replace_data(new_content, s1, s2);
             if (new_content[0] == '\0')
             {
-                std::cerr << "Error ! Empty file enter, no content copy available" << std::endl;
+                std::cout << "Error ! Empty file enter, no content copy available" << std::endl;
                 return (1);
             }
                 
@@ -61,6 +61,6 @@ int main(int ac, char **av)
         _file.close();
     }
     else
-        std::cerr << "Error ! Please respect the correct way to use : ./sed filename s1 s2" << std::endl;
+        std::cout << "Error ! Please respect the correct way to use : ./sed filename s1 s2" << std::endl;
     return (0);
 }

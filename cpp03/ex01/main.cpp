@@ -2,22 +2,22 @@
 
 int main(void)
 {
-	ClapTrap Jubileus("Jubileus");
-	ScavTrap Robert("Robert");
-
-	Jubileus.attack("Robert");
-	Robert.takeDamage(0);
-
-	Robert.attack("Jubileus");
-	Jubileus.takeDamage(20);
-
-	Jubileus.attack("Robert");
-
-	Robert.beRepaired(7);
-
-	Jubileus.attack("Robert");
-
-	Robert.guardGate();
+	{
+        std::cout << "=== Test ClapTrap ===" << std::endl;
+        ClapTrap clap("ClapClap");
+        ClapTrap clop("ClopClop");
+        clap.attack("ClopClop");
+        clop.takeDamage(5);
+        clap.beRepaired(3);
+    }
+    {
+        std::cout << "\n=== Test ScavTrap ===" << std::endl;
+        ScavTrap scav("Scavax");
+        scav.attack("target");
+        scav.takeDamage(5);
+        scav.beRepaired(3);
+        scav.guardGate();
+    }
 
 
 	return 0;

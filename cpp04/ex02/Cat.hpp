@@ -13,8 +13,6 @@ class Cat : public Animal
         Cat(const Cat &cat);
         Cat &operator=(const Cat &cat);
         ~Cat();
-        virtual void    makeSound() const;
-        Brain *manageBrain() const;
+        void    makeSound() const;
 };
-
 # endif

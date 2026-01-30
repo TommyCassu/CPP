@@ -2,16 +2,11 @@
 
 int main()
 {
-    ClapTrap a("Toto");
-    ClapTrap b("Titi");
-    a.attack("Titi");
-    b.takeDamage(5);
-    b.beRepaired(5);
-    a.attack("Titi");
-    b.takeDamage(10);
-    b.beRepaired(5);
-    a.attack("Titi");
-    b.takeDamage(10);
-
+    std::cout << "=== Test ClapTrap ===" << std::endl;
+    ClapTrap clap("ClapClap");
+    ClapTrap clop("ClopClop");
+    clap.attack("ClopClop");
+    clop.takeDamage(5);
+    clap.beRepaired(3);
     return (0);
 }

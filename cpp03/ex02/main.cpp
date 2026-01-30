@@ -3,35 +3,29 @@
 
 int main(void)
 {
-	ClapTrap Jubileus("Jubileus");
-	ScavTrap Robert("Robert");
-	FragTrap Jean("Jean");
-
-	Jubileus.attack("Robert");
-	Robert.takeDamage(0);
-
-	Robert.attack("Jubileus");
-	Jubileus.takeDamage(20);
-
-	Jubileus.attack("Robert");
-
-	Robert.beRepaired(7);
-
-	Jubileus.attack("Robert");
-
-	Jean.attack("Robert");
-	Robert.guardGate();
-	Robert.takeDamage(10);
-	Jean.highFivesGuys();
-
-	std::cout << "Use copy/ assignation operator" << std::endl;
-	ClapTrap Jubileus2 = Jubileus;
-	ScavTrap Robert2(Robert);
-	FragTrap Jean2(Jean);
-
-	Jubileus2.attack("Robert");
-	Robert2.guardGate();
-	Jean2.highFivesGuys();
-
+    {
+        std::cout << "=== Test ClapTrap ===" << std::endl;
+        ClapTrap clap("ClapClap");
+        ClapTrap clop("ClopClop");
+        clap.attack("ClopClop");
+        clop.takeDamage(5);
+        clap.beRepaired(3);
+    }
+    {
+        std::cout << "\n=== Test ScavTrap ===" << std::endl;
+        ScavTrap scav("Scavax");
+        scav.attack("target");
+        scav.takeDamage(5);
+        scav.beRepaired(3);
+        scav.guardGate();
+    }
+    {
+        std::cout << "\n=== Test FragTrap ===" << std::endl;
+        FragTrap frag("Fraggy");
+        frag.attack("target");
+        frag.takeDamage(5);
+        frag.beRepaired(3);
+        frag.highFivesGuys();
+    }
 	return 0;
 }

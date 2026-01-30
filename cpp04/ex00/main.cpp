@@ -6,19 +6,31 @@
 
 int main()
 {
+    std::cout << "* Constructor *" << std::endl;
     const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
-
-    const WrongAnimal* metaa = new WrongAnimal();
-    const WrongAnimal* k = new WrongCat();
-    std::cout << k->getType() << " " << std::endl;
-    k->makeSound();
-    metaa->makeSound();
+    const Animal* dog = new Dog();
+    const Animal* cat = new Cat();
+    std::cout << std::endl;
+    std::cout<< "* TYPE *" << std::endl;
+    std::cout << "Animal type is " << meta->getType() << std::endl;
+    std::cout << "Animal type is " << cat->getType() << std::endl;
+    std::cout << "Animal type is " << dog->getType() << std::endl;
+    std::cout << std::endl;
+    std::cout<< "* Sound *" << std::endl;
+    meta->makeSound(); 
+    dog->makeSound();
+    cat->makeSound();
+    delete meta;
+    delete dog;
+    delete cat;
+    std::cout << std::endl;
+    std::cout<< "* WrongAnimal/Cat*" << std::endl;
+    const WrongAnimal* wronganimal = new WrongAnimal();
+    const WrongAnimal* wrongcat = new WrongCat();
+    std::cout << wrongcat->getType() << " " << std::endl;
+    wrongcat->makeSound();
+    wronganimal->makeSound();
+    delete wronganimal;
+    delete wrongcat;
     return 0;
 }
