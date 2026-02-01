@@ -1,4 +1,4 @@
-# include "Form.hpp"
+# include "AForm.hpp"
 # include "Bureaucrat.hpp"
 
 Form::Form() : _name("DefaultFormName"), _isSigned(0), _requiredGradeToSign(150), _requiredGradeToExec(150) {
@@ -18,6 +18,7 @@ Form::Form(const Form &oldForm) : _name(oldForm._name), _isSigned(oldForm._isSig
 }
 
 Form &Form::operator=(const Form& oldForm) {
+     std::cout << "Form Copy assignement operator constructor called" << std::endl;
     if (this != &oldForm)
         _isSigned = oldForm._isSigned;
     return *this;

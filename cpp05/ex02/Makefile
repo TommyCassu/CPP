@@ -2,7 +2,7 @@ SRC 		= main.cpp Bureaucrat.cpp Form.cpp
 
 OBJS	 	= ${SRC:.cpp=.o}
 
-NAME		= Form
+NAME		= AForm
 
 CC 			= c++
 
