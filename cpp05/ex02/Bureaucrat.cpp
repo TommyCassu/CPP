@@ -56,7 +56,7 @@ void    Bureaucrat::decrementGrade(void) {
     this->setGrade(this->_grade + 1);
 }
 
-void    Bureaucrat::signForm(Form &form) {
+void    Bureaucrat::signForm(AForm &form) {
     try {
         form.beSigned(*this);
         std::cout << this->_name << " signed " << form.getName() << std::endl;
@@ -78,4 +78,13 @@ std::ostream    &operator<<(std::ostream &os, const Bureaucrat &employee)
 {
     os << employee.getName() << ", bureaucrat grade " << employee.getGrade() << ".";
     return (os);
+}
+
+void    Bureaucrat::executeForm(AForm const & form) const {
+    try {
+        form.execute(*this);
+        std::cout << this->getName() << " executed " << form.getName() << std::endl;
+    } catch (std::exception &e) {
+        std::cout << this->getName() << " can't execute " << form.getName() << " because " << e.what() << std::endl;
+    }
 }

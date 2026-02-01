@@ -1,23 +1,23 @@
-# ifndef AFORM_HPP
-# define AFORM_HPP
+# ifndef AAFORM_HPP
+# define AAFORM_HPP
 
 # include <iostream>
 
 class Bureaucrat;
 
-class Form {
+class AForm {
     private:
         const std::string   _name;
         bool                _isSigned;
         const int _requiredGradeToSign;
         const int _requiredGradeToExec;
     public:
-        Form();
-        Form(const std::string name, bool isSigned, const int requiredGradeToSign, const int requiredGradeToExec);
-        Form(const Form &oldForm);
-        ~Form();
-        Form& operator=(const Form &oldForm);
-        
+        AForm();
+        AForm(const std::string name, bool isSigned, const int requiredGradeToSign, const int requiredGradeToExec);
+        AForm(const AForm &oldAForm);
+        virtual ~AForm();
+        AForm& operator=(const AForm &oldAForm);
+
         std::string getName() const;
         bool        getSigned() const;
         int         getRequireToSign() const;
@@ -32,9 +32,15 @@ class Form {
             public:
                 virtual const char* what() const throw();
         };
+        class      FormIsNotSignedException : public std::exception{
+            public:
+                virtual const char* what() const throw();
+        };
 
+        void    execute(Bureaucrat const & executor) const;
+        virtual void    executeThisForm(AForm const & form) const = 0;
 };
 
-std::ostream    &operator<<(std::ostream &os, const Form &form);
+std::ostream    &operator<<(std::ostream &os, const AForm &Aform);
 
 # endif
