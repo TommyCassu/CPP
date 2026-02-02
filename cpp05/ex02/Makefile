@@ -18,7 +18,8 @@ ${NAME}: ${OBJS}
 
 clean:
 	rm -rf ${OBJS}
-
+	rm -rf Form_24601_Shrubbery
+	
 fclean: clean
 	rm -rf ${NAME}
 

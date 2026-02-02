@@ -15,7 +15,7 @@ class ShrubberyCreationForm : public AForm {
         ShrubberyCreationForm(const ShrubberyCreationForm &oldShrubberyCreationForm);
         ~ShrubberyCreationForm();
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm &oldForm);
-        void    executeThisForm(AForm const &form) const ;
+        void    executeThisForm() const ;
 };
 
 # endif

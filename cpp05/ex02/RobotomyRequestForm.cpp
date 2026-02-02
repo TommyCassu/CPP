@@ -1,10 +1,10 @@
 # include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("Default_Robotomy", false, 72, 45), _target("DefaultTarget") {
+RobotomyRequestForm::RobotomyRequestForm() : AForm("Default", false, 72, 45), _target("DefaultTarget") {
     std::cout << "RobotomyRequestForm default constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target + "_Robotomy", false, 72, 45) {
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyForm", false, 72, 45), _target(target) {
     std::cout << "RobotomyRequestForm param(s) constructor called" << std::endl;
 }
 
@@ -21,4 +21,13 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 
 RobotomyRequestForm::~RobotomyRequestForm() {
     std::cout << "RobotomyRequestForm destructor called" << std::endl;
+}
+
+void    RobotomyRequestForm::executeThisForm() const {
+    std::srand(std::time(NULL));
+    std::cout << "\'\'\'BRBRBRBRBR\'\'\'. ";
+    if (std::rand() % 2)
+        std::cout << this->_target << "have been robotized !" << std::endl;
+    else
+        std::cout << this->_target << " robotomy failed !" << std::endl;
 }

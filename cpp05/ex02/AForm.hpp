@@ -38,7 +38,7 @@ class AForm {
         };
 
         void    execute(Bureaucrat const & executor) const;
-        virtual void    executeThisForm(AForm const & form) const = 0;
+        virtual void    executeThisForm() const = 0;
 };
 
 std::ostream    &operator<<(std::ostream &os, const AForm &Aform);

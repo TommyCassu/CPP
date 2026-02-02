@@ -1,10 +1,10 @@
 # include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("Default_Presidential", false, 25, 5), _target("DefaultTarget") {
+PresidentialPardonForm::PresidentialPardonForm() : AForm("Default", false, 25, 5), _target("DefaultTarget") {
     std::cout << "PresidentialPardonForm default constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(target + "_Presidential", false, 25, 5) {
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialForm", false, 25, 5), _target(target) {
     std::cout << "PresidentialPardonForm param(s) constructor called" << std::endl;
 }
 
@@ -21,4 +21,8 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 PresidentialPardonForm::~PresidentialPardonForm() {
     std::cout << "PresidentialPardonForm destructor called" << std::endl;
+}
+
+void    PresidentialPardonForm::executeThisForm() const {
+    std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

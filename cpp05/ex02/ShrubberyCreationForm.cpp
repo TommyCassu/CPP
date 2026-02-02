@@ -23,7 +23,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
     std::cout << "ShrubberyCreationForm destructor called" << std::endl;
 }
 
-void    ShrubberyCreationForm::executeThisForm(AForm const &form) const {
+void    ShrubberyCreationForm::executeThisForm() const {
     std::string filename = _target + "_Shrubbery";
     std::ofstream _File(filename.c_str());
     //if (!_File.is_open())
@@ -44,5 +44,4 @@ void    ShrubberyCreationForm::executeThisForm(AForm const &form) const {
         << "                     |    |\n"
         << "--------------------/ ,  . \\--------._\n";
         _File.close();
-        std::cout << "ShrubberyCreationForm : " << form.getName() << " Succesfully created !" << std::endl;
 }

@@ -1,21 +1,50 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
     {
-        Bureaucrat employee("Albert", 10);
+        Bureaucrat employee("Albert", 136);
         ShrubberyCreationForm shrubberyForm("Form_24601");
         std::cout << "* Incrementationnal Test *" << std::endl;
         try {
             std::cout << shrubberyForm << std::endl;
-            shrubberyForm.beSigned(employee);
+            employee.signForm(shrubberyForm);
             shrubberyForm.execute(employee);
         } catch (const std::exception &e) {
             std::cout << e.what() << std::endl;
         }
     }
+
+    {
+        Bureaucrat employee("Albert", 45);
+        RobotomyRequestForm robotomyForm("Form_24601");
+        std::cout << "* I *" << std::endl;
+        try {
+            std::cout << robotomyForm << std::endl;
+            employee.signForm(robotomyForm);
+            robotomyForm.execute(employee);
+        } catch (const std::exception &e) {
+            std::cout << e.what() << std::endl;
+        }
+    }
+
+    {
+        Bureaucrat employee("Albert", 4);
+        PresidentialPardonForm presidentialForm("Fabrice");
+        std::cout << "* I *" << std::endl;
+        try {
+            std::cout << presidentialForm << std::endl;
+            employee.signForm(presidentialForm);
+            presidentialForm.execute(employee);
+        } catch (const std::exception &e) {
+            std::cout << e.what() << std::endl;
+        }
+    }
+    
     
 
 

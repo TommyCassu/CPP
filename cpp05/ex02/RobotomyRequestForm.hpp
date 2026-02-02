@@ -2,6 +2,8 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include <iostream>
+# include <cstdlib>
+# include <ctime>
 # include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm {
@@ -13,8 +15,8 @@ class RobotomyRequestForm : public AForm {
         RobotomyRequestForm(const RobotomyRequestForm &oldRobotomyRequestForm);
         ~RobotomyRequestForm();
         RobotomyRequestForm& operator=(const RobotomyRequestForm &oldForm);
+        void    executeThisForm() const ;
 
-        void    execute(Bureaucrat const & executor) const;
 
 };
 
