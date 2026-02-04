@@ -19,6 +19,10 @@ Intern &Intern::operator=(const Intern &oldIntern) {
     return *this;
 }
 
+const char* Intern::UnknowInputRequestException::what() const throw(){
+    return ("Provided form name does not exist !");
+}
+
 AForm* createShrubberyCreationForm(const std::string& target) {
     return new ShrubberyCreationForm(target);
 }
@@ -49,6 +53,6 @@ AForm* Intern::makeForm(std::string request, std::string target) {
             return FormListCreators[i](target);
         }
     }
-    std::cout << "Error. Provided form name \""<< request << "\" does not exist ! " << std::endl;
+    throw UnknowInputRequestException();
     return NULL;
 }

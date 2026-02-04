@@ -14,6 +14,11 @@ class Intern {
         Intern& operator=(const Intern &oldIntern);
         ~Intern();
         AForm* makeForm(std::string request, std::string target);
+
+        class      UnknowInputRequestException : public std::exception{
+            public:
+                virtual const char* what() const throw();
+        };
 };
 
 # endif

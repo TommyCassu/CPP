@@ -2,7 +2,7 @@ SRC 		= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequ
 
 OBJS	 	= ${SRC:.cpp=.o}
 
-NAME		= AForm
+NAME		= Intern
 
 CC 			= c++
 
