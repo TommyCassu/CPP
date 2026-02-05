@@ -2,5 +2,6 @@
 
 int main(int ac, char *av[]) {\
     (void)ac;
-    ScalarConverter::convert(av[1]);
+    std::string s = "a";
+    ScalarConverter::convert(s);
 }
