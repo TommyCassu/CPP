@@ -16,6 +16,10 @@ class ScalarConverter {
                 public:
                     virtual const char* what() const throw();
             };
+        class      InvalidInputException : public std::exception{
+                public:
+                    virtual const char* what() const throw();
+            };
 };
 
 # endif
