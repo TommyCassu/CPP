@@ -6,7 +6,7 @@ NAME		= scalarConverter
 
 CC 			= c++
 
-CFLAGS 		= -std=c++98 -g
+CFLAGS 		= -Wall -Werror -Wextra -std=c++98
 
 all: ${NAME}
 

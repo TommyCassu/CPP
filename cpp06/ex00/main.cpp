@@ -1,13 +1,23 @@
 #include "ScalarConverter.hpp"
 
-int main(int ac, char *av[]) {\
-    (void)ac;
+int main() {
 
     // Test avec un entier
     std::cout << "Test avec un entier:"  << std::endl;
-    ScalarConverter::convert("99999999999999999999999999999999999999999999999999");
+    ScalarConverter::convert("a");
     std::cout << std::endl;
 
+    std::cout << "Test avec un entier:"  << std::endl;
+    ScalarConverter::convert("A");
+    std::cout << std::endl;
+
+    std::cout << "Test avec un entier:"  << std::endl;
+    ScalarConverter::convert("5");
+    std::cout << std::endl;
+
+    std::cout << "Test avec un entier:"  << std::endl;
+    ScalarConverter::convert("a");
+    std::cout << std::endl;
     // Test avec un flottant
     std::cout << "Test avec un flottant:"  << std::endl;
     ScalarConverter::convert("42.42");
