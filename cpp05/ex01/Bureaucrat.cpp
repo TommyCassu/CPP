@@ -1,13 +1,11 @@
 # include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() {
-    this->setName("defaultName");
+Bureaucrat::Bureaucrat() : _name("defaultName") {
     this->setGrade(1);
     std::cout << "Bureaucrat Default constructor called" << std::endl;
 };
 
-Bureaucrat::Bureaucrat(std::string name, int grade) {
-    this->setName(name);
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
     this->setGrade(grade);
     std::cout << "Bureaucrat param(s) constructor called" << std::endl;
 };
@@ -33,10 +31,6 @@ std::string Bureaucrat::getName(void) const {
 
 int Bureaucrat::getGrade(void) const {
     return this->_grade;
-}
-
-void Bureaucrat::setName(const std::string &name){
-    this->_name = name;
 }
 
 void Bureaucrat::setGrade(int grade){

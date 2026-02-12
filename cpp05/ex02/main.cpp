@@ -7,9 +7,9 @@
 int main()
 {
     {
+        std::cout << "* ShrubberyCreation Test *" << std::endl;
         Bureaucrat employee("Albert", 136);
         ShrubberyCreationForm shrubberyForm("Form_24601");
-        std::cout << "* Incrementationnal Test *" << std::endl;
         try {
             std::cout << shrubberyForm << std::endl;
             employee.signForm(shrubberyForm);
@@ -18,11 +18,11 @@ int main()
             std::cout << e.what() << std::endl;
         }
     }
-
+    std::cout << std::endl;
     {
+        std::cout << "* RobotomyRequest Test *" << std::endl;
         Bureaucrat employee("Albert", 45);
         RobotomyRequestForm robotomyForm("Form_24601");
-        std::cout << "* I *" << std::endl;
         try {
             std::cout << robotomyForm << std::endl;
             employee.signForm(robotomyForm);
@@ -31,11 +31,11 @@ int main()
             std::cout << e.what() << std::endl;
         }
     }
-
+    std::cout << std::endl;
     {
+        std::cout << "* PresidentialPardon Test *" << std::endl;
         Bureaucrat employee("Albert", 4);
         PresidentialPardonForm presidentialForm("Fabrice");
-        std::cout << "* I *" << std::endl;
         try {
             std::cout << presidentialForm << std::endl;
             employee.signForm(presidentialForm);
@@ -44,7 +44,19 @@ int main()
             std::cout << e.what() << std::endl;
         }
     }
-    
+    std::cout << std::endl;
+    {
+        std::cout << "* PresidentialPardon Fail Test *" << std::endl;
+        Bureaucrat employee("Albert", 8);
+        PresidentialPardonForm presidentialForm("Fabrice");
+        try {
+            std::cout << presidentialForm << std::endl;
+            employee.signForm(presidentialForm);
+            presidentialForm.execute(employee);
+        } catch (const std::exception &e) {
+            std::cout << e.what() << std::endl;
+        }
+    }
     
 
 
