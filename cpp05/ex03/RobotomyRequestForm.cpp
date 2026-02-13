@@ -27,7 +27,7 @@ void    RobotomyRequestForm::executeThisForm() const {
     std::srand(std::time(NULL));
     std::cout << "\'\'\'BRBRBRBRBR\'\'\'. ";
     if (std::rand() % 2)
-        std::cout << this->_target << "have been robotized !" << std::endl;
+        std::cout << this->_target << " have been robotized !" << std::endl;
     else
         std::cout << this->_target << " robotomy failed !" << std::endl;
 }

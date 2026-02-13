@@ -42,7 +42,7 @@ int main()
     }
     {
         std::cout << std::endl;
-        std::cout << "* Decrementationnal above limite Test *" << std::endl;
+        std::cout << "* Incrementationnal above limite Test *" << std::endl;
         try {
             Bureaucrat employee("Richie", 1);
             std::cout << employee << std::endl;

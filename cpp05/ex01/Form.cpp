@@ -3,6 +3,7 @@
 
 Form::Form() : _name("DefaultFormName"), _isSigned(0), _requiredGradeToSign(150), _requiredGradeToExec(150) {
     std::cout << "Form default constructor called" << std::endl;
+    return ;
 }
 
 Form::Form(const std::string name, bool isSigned, const int requiredGradeToSign, const int requiredGradeToExec) : _name(name), _isSigned(isSigned), _requiredGradeToSign(requiredGradeToSign), _requiredGradeToExec(requiredGradeToExec) {
@@ -15,6 +16,7 @@ Form::Form(const std::string name, bool isSigned, const int requiredGradeToSign,
 
 Form::Form(const Form &oldForm) : _name(oldForm._name), _isSigned(oldForm._isSigned), _requiredGradeToSign(oldForm._requiredGradeToSign), _requiredGradeToExec(oldForm._requiredGradeToExec) {
     std::cout << "Form copy constructor called" << std::endl;
+    return ;
 }
 
 Form &Form::operator=(const Form& oldForm) {
@@ -25,6 +27,7 @@ Form &Form::operator=(const Form& oldForm) {
 
 Form::~Form() {
     std::cout << "Form destructor called" << std::endl;
+    return ;
 }
 
 std::string Form::getName() const {
@@ -44,9 +47,10 @@ int     Form::getRequireToExec() const {
 }
 
 void    Form::beSigned(Bureaucrat &bureaucrat) {
-    if (bureaucrat.getGrade() > _requiredGradeToSign)
+    if (bureaucrat.getGrade() > _requiredGradeToSign) {}
         throw GradeTooLowException();
     _isSigned = true;
+    return ;
 }
 
 const char* Form::GradeTooHighException::what() const throw(){

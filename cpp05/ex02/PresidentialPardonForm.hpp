@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include "AForm.hpp"
+# include "Bureaucrat.hpp"
 
 class PresidentialPardonForm : public AForm {
     private:
@@ -14,7 +15,7 @@ class PresidentialPardonForm : public AForm {
         ~PresidentialPardonForm();
         PresidentialPardonForm& operator=(const PresidentialPardonForm &oldAForm);
 
-        void    executeThisForm() const;
+        void    execute(Bureaucrat const& executor) const;
 
 };
 

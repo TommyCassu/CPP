@@ -23,25 +23,32 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
     std::cout << "ShrubberyCreationForm destructor called" << std::endl;
 }
 
-void    ShrubberyCreationForm::executeThisForm() const {
-    std::string filename = _target + "_Shrubbery";
-    std::ofstream _File(filename.c_str());
-    //if (!_File.is_open())
-
-    _File << "                                                   |\n"
-        << "                                              -x-\n"
-        << "                                               |\n"
-        << "              v .   ._, |_  .,\n"
-        << "           `-._\\/  .  \\ /    |/_\n"
-        << "               \\  _\\, y | \\//\n"
-        << "         _\\_.___\\, \\/ -.\\||\n"
-        << "           `7-,--.`._||  / / ,\n"
-        << "           /'     `-. `./ / |/_.'\n"
-        << "                     |    |//\n"
-        << "                     |_    /\n"
-        << "                     |-   |\n"
-        << "                     |   =|\n"
-        << "                     |    |\n"
-        << "--------------------/ ,  . \\--------._\n";
-        _File.close();
+void    ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
+    if (this->getSigned() == false)
+        throw FormIsNotSignedException() ;
+    else if (executor.getGrade() > this->getRequireToExec())
+        throw GradeTooLowException() ;
+    else {
+        std::string filename = _target + "_Shrubbery";
+        std::ofstream _File(filename.c_str());
+        //if (!_File.is_open())
+    
+        _File << "                                                   |\n"
+            << "                                              -x-\n"
+            << "                                               |\n"
+            << "              v .   ._, |_  .,\n"
+            << "           `-._\\/  .  \\ /    |/_\n"
+            << "               \\  _\\, y | \\//\n"
+            << "         _\\_.___\\, \\/ -.\\||\n"
+            << "           `7-,--.`._||  / / ,\n"
+            << "           /'     `-. `./ / |/_.'\n"
+            << "                     |    |//\n"
+            << "                     |_    /\n"
+            << "                     |-   |\n"
+            << "                     |   =|\n"
+            << "                     |    |\n"
+            << "--------------------/ ,  . \\--------._\n";
+            _File.close();
+    };
+    return ;
 }

@@ -23,11 +23,18 @@ RobotomyRequestForm::~RobotomyRequestForm() {
     std::cout << "RobotomyRequestForm destructor called" << std::endl;
 }
 
-void    RobotomyRequestForm::executeThisForm() const {
-    std::srand(std::time(NULL));
-    std::cout << "\'\'\'BRBRBRBRBR\'\'\'. ";
-    if (std::rand() % 2)
-        std::cout << this->_target << "have been robotized !" << std::endl;
-    else
-        std::cout << this->_target << " robotomy failed !" << std::endl;
+void    RobotomyRequestForm::execute(Bureaucrat const& executor) const {
+    if (this->getSigned() == false)
+        throw FormIsNotSignedException() ;
+    else if (executor.getGrade() > this->getRequireToExec())
+        throw GradeTooLowException() ;
+    else {
+        std::srand(std::time(NULL));
+        std::cout << "\'\'\'BRBRBRBRBR\'\'\'. ";
+        if (std::rand() % 2)
+            std::cout << this->_target << " have been robotized !" << std::endl;
+        else
+            std::cout << this->_target << " robotomy failed !" << std::endl;
+        return ;
+    };
 }

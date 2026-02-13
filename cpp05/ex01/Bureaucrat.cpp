@@ -3,15 +3,18 @@
 Bureaucrat::Bureaucrat() : _name("defaultName") {
     this->setGrade(1);
     std::cout << "Bureaucrat Default constructor called" << std::endl;
+    return ;
 };
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
     this->setGrade(grade);
     std::cout << "Bureaucrat param(s) constructor called" << std::endl;
+    return ;
 };
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat) : _name(bureaucrat._name), _grade(bureaucrat._grade) {
     std::cout << "Bureaucrat Copy constructor called" << std::endl;
+    return ;
 };
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bureaucrat) {
@@ -23,6 +26,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bureaucrat) {
 
 Bureaucrat::~Bureaucrat() {
     std::cout << "Bureaucrate Destructor called" << std::endl;
+    return ;
 };
 
 std::string Bureaucrat::getName(void) const {
@@ -40,14 +44,17 @@ void Bureaucrat::setGrade(int grade){
         throw GradeTooHighException();
     else
         this->_grade = grade;
+    return ;
 }
 
 void    Bureaucrat::incrementGrade(void) {
     this->setGrade(this->_grade - 1);
+    return ;
 }
 
 void    Bureaucrat::decrementGrade(void) {
     this->setGrade(this->_grade + 1);
+    return ;
 }
 
 void    Bureaucrat::signForm(Form &form) {
@@ -57,7 +64,7 @@ void    Bureaucrat::signForm(Form &form) {
     } catch (const std::exception &e) {
         std::cout << this->_name << " couldn't sign " << form.getName()<< " because " << e.what() << std::endl;
     }
-    
+    return ;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw(){
