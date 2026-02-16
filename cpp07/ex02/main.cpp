@@ -51,4 +51,15 @@ int main( void ) {
         
     }
 
+    std::cout << std::endl;
+    {
+        try {
+            Array<int> a(0);
+            std::cout << std::endl;
+        } catch (const std::exception& e) {
+            std::cout << "Error ! " << e.what() << std::endl;
+        }
+        
+    }
+
 }
