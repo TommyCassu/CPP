@@ -1,6 +1,7 @@
 #include "ScalarConverter.hpp"
 #include <sstream>
 #include <limits.h>
+#include <string>
 # include <cfloat>
 #include <cmath>
 
@@ -98,7 +99,7 @@ static void    printFunny(std::string value) {
     else {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
-        if (value.find('-')) {
+        if (value.find('-') != std::string::npos) {
             std::cout << "float: -inff" << std::endl;
             std::cout << "double: -inf" << std::endl;
         }
