@@ -22,10 +22,22 @@ class ArrayFullException : public std::exception {
 };
 
 void    Span::addNumber(int nb) {
-    std::cout << _spanArray.size() << std::endl;
     if (_spanArray.size() == _maxInt)
         throw ArrayFullException();
     _spanArray.push_back(nb);
 }
 
+int Span::longestSpan() {
+    return ((*std::max_element(_spanArray.begin(), _spanArray.end())) - (*std::min_element(_spanArray.begin(), _spanArray.end())));
+}
     
+int Span::shortestSpan() {
+    std::vector<int> TempVector = _spanArray;
+    std::sort(TempVector.begin(), TempVector.end());
+    int result = (TempVector.at(1) - TempVector.at(0));
+    for (int i = 1; i < static_cast<int>(TempVector.size() - 1); i++) {
+        if ((TempVector.at(i + 1) - TempVector.at(i)) <  result)
+            result = ((TempVector.at(i + 1) - TempVector.at(i)));
+    };
+    return result;
+}

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iterator>
 
 class Span {
     private:
@@ -14,6 +15,8 @@ class Span {
         Span(unsigned int maxInt);
         ~Span();
         void addNumber(int nb);
+        int shortestSpan();
+        int longestSpan();
 
 };
 # endif
