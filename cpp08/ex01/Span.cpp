@@ -28,8 +28,8 @@ void    Span::addNumber(int nb) {
     _spanArray.push_back(nb);
 }
 
-std::vector<int>& getArray() {
-    return std::vector<int>(_spanArray);
+std::vector<int>& Span::getArray() {
+    return _spanArray;
 }
 
 int Span::longestSpan() {
@@ -55,7 +55,11 @@ int Span::shortestSpan() {
 void    Span::addRandomNumbers(std::vector<int>::iterator it_begin, std::vector<int>::iterator it_end) {
     std::srand(0);
     for (std::vector<int>::iterator it = it_begin; it != it_end; it++) {
-        _spanArray.push_back(std::rand() % __INT_MAX__);
+        _spanArray.push_back(std::rand() % _maxInt);
+    }
+    for (unsigned int i = 0; i < _spanArray.size(); i++)
+    {
+        std::cout << _spanArray.at(i) << std::endl;
     }
     return ;
 

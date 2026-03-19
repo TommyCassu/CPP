@@ -3,7 +3,7 @@
 
 int main()
 {
-    Span sp = Span(5);
+    Span sp = Span(50);
     sp.addNumber(6);
     sp.addNumber(3);
     sp.addNumber(17);
@@ -15,7 +15,6 @@ int main()
     std::vector<int>::iterator it_begin = sp.getArray().begin();
     std::vector<int>::iterator it_end = sp.getArray().end();
     sp.addRandomNumbers(it_begin, it_end);
-    
     return 0;
 }
 
