@@ -6,9 +6,9 @@
 int main (int ac, char **av) {
     if (ac == 2)
     {
-        (void)av;
-       BitcoinExchange BitcoinExchange; 
+       BitcoinExchange Btc;
+       Btc.processingData(av[1]);
     } else 
-        std::cout << "Error : Please enter a param file.)" << std::endl;
+        std::cout << "Error : Please enter a param file." << std::endl;
     return (0);
 }

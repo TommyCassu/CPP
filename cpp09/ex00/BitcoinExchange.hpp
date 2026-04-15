@@ -11,6 +11,6 @@ class BitcoinExchange {
     public:
         BitcoinExchange();
         ~BitcoinExchange();
-
+        void processingData(std::string file);
 };
 # endif
