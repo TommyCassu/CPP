@@ -7,10 +7,11 @@
 
 class BitcoinExchange {
     private:
-        std::map<std::string, double> input_csv;
+        std::map<std::string, float> input_csv;
     public:
         BitcoinExchange();
         ~BitcoinExchange();
         void processingData(std::string file);
+        float getDateValue(std::string date);
 };
 # endif
