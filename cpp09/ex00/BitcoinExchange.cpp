@@ -23,6 +23,16 @@ BitcoinExchange::BitcoinExchange() {
         std::cout << "Error : Pleaser enter a valid file" << std::endl;
 }
 
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &btc) {
+    *this = btc;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &btc) {
+    if (this != &btc)
+        this->input_csv = btc.input_csv;
+    return *this;
+}
+
 BitcoinExchange::~BitcoinExchange() {};
 
 static int onlyDigit(std::string value) {
