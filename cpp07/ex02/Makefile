@@ -2,7 +2,7 @@ SRC 		= main.cpp
 
 OBJS	 	= ${SRC:.cpp=.o}
 
-NAME		= iterTemplates
+NAME		= arrayTemplate
 
 CC 			= c++
 
