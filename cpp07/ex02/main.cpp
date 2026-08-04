@@ -65,8 +65,6 @@ int main( void ) {
 
     std::cout << std::endl;
     {
-        // complex type test (std::string), required by the subject's
-        // "simple and complex types" check
         try {
             Array<std::string> a(3);
             a[0] = "hello";

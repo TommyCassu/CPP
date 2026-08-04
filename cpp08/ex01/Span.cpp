@@ -1,7 +1,7 @@
 #include "Span.hpp"
-#include <ctime>
-# include <cstdlib>
-Span::Span() : _maxInt(__INT_MAX__) {
+#include <limits>
+
+Span::Span() : _maxInt(std::numeric_limits<int>::max()) {
     std::cout << "Span default constructor called" << std::endl;
     
 };
@@ -15,12 +15,21 @@ Span::~Span() {
     std::cout << "Span destructor called" << std::endl;
 };
 
-class ArrayFullException : public std::exception {
-    public:
-        virtual const char* what() const throw(){
-            return "Your array is already full. You can't add more number !";
-        }
+Span::Span(const Span &src) {
+    *this = src;
+    std::cout << "Span Copy constructor called" << std::endl;
 };
+
+Span &Span::operator=(const Span &src) {
+    if (this != &src){
+        _maxInt = src._maxInt;
+        _spanArray = src._spanArray;
+    }
+    std::cout << "Operator overload called" << std::endl;
+    return *this;
+};
+
+
 
 void    Span::addNumber(int nb) {
     if (_spanArray.size() == _maxInt)
@@ -28,20 +37,19 @@ void    Span::addNumber(int nb) {
     _spanArray.push_back(nb);
 }
 
-std::vector<int>& Span::getArray() {
+const std::vector<int>& Span::getArray() const {
     return _spanArray;
 }
 
-int Span::longestSpan() {
-    if (_maxInt <= 1)
-        throw ErrorException();
-    std::vector<int> temp = _spanArray;
-    if (temp.size() < 2)
-        throw ErrorException();
+int Span::longestSpan() const{
+    if (_spanArray.size() < 2)
+        throw ErrorSizeTooLowException();
     return ((*std::max_element(_spanArray.begin(), _spanArray.end())) - (*std::min_element(_spanArray.begin(), _spanArray.end())));
 }
     
-int Span::shortestSpan() {
+int Span::shortestSpan() const{
+    if (_spanArray.size() < 2)
+        throw ErrorSizeTooLowException();
     std::vector<int> TempVector = _spanArray;
     std::sort(TempVector.begin(), TempVector.end());
     int result = (TempVector.at(1) - TempVector.at(0));
@@ -50,17 +58,4 @@ int Span::shortestSpan() {
             result = ((TempVector.at(i + 1) - TempVector.at(i)));
     };
     return result;
-}
-
-void    Span::addRandomNumbers(std::vector<int>::iterator it_begin, std::vector<int>::iterator it_end) {
-    std::srand(0);
-    for (std::vector<int>::iterator it = it_begin; it != it_end; it++) {
-        _spanArray.push_back(std::rand() % _maxInt);
-    }
-    for (unsigned int i = 0; i < _spanArray.size(); i++)
-    {
-        std::cout << _spanArray.at(i) << std::endl;
-    }
-    return ;
-
 }
