@@ -6,6 +6,16 @@
 #include <algorithm>
 #include <iterator>
 
+class ArrayFullException : public std::exception {
+    public:
+        virtual const char* what() const throw();
+};
+
+class ErrorSizeTooLowException : public std::exception {
+    public:
+        virtual const char* what() const throw();
+};
+
 class Span {
     private:
         unsigned int _maxInt;
@@ -17,23 +27,10 @@ class Span {
         Span(const Span &src);
         Span &operator=(const Span &src);
         void addNumber(int nb);
-        int shortestSpan() const ;
-        int longestSpan() const;
+        unsigned int shortestSpan() const ;
+        unsigned int longestSpan() const;
         const std::vector<int>& getArray() const;
 
-        class ArrayFullException : public std::exception {
-            public:
-                virtual const char* what() const throw(){
-                    return "Your array is already full. You can't add more number !";
-                }
-        };
-
-        class ErrorSizeTooLowException : public std::exception {
-            public:
-                virtual const char* what() const throw(){
-                    return "Your array size is too low to give a shortest/longest !";
-                }
-        };
 
         template<typename typeIt>
         void    addNumbers(typeIt it_begin, typeIt it_end) {

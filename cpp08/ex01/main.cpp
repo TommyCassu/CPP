@@ -31,6 +31,7 @@ int main()
         std::cout << e.what() << std::endl;
     }
     std::cout << std::endl;
+
     try {
         std::cout << "Test addNumber on full Span :" << std::endl;
         Span sp = Span(5);
@@ -43,6 +44,29 @@ int main()
     } catch ( std::exception &e) {
         std::cout << e.what() << std::endl;
     }
+    
+    std::cout << std::endl;
+    try {
+        std::cout << "Test Span empty :" << std::endl;
+        Span sp = Span(5);
+        std::cout << "ShortestSpan : " << sp.shortestSpan() << std::endl;
+    } catch ( std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
+
+    std::cout << std::endl;
+    try {
+        std::cout << "Test addNumber on full Span :" << std::endl;
+        Span sp = Span(3);
+        sp.addNumber(2147483647);
+        sp.addNumber(-2147483648);
+        sp.addNumber(0);
+        std::cout << "ShortestSpan : " << sp.shortestSpan() << std::endl;
+        std::cout << "longestSpan : " << sp.longestSpan() << std::endl;
+    } catch ( std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
+
     std::cout << std::endl;
     try {
         std::cout << "Test Span empty :" << std::endl;
