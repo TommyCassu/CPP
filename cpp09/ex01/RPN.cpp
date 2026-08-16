@@ -1,6 +1,8 @@
 #include "RPN.hpp"
 #include <sstream>
 #include <cstdlib>
+#include <cctype>
+#include <stdexcept>
 
 
 RPN::RPN() {
@@ -20,8 +22,22 @@ RPN &RPN::operator=(const RPN &old) {
     return *this;
 }
 
-double processOperator(double a, double b, char operatorFound) {
-    int output;
+static int isOperator(const std::string &token) {
+    return (token.size() == 1 && (token[0] == '+' || token[0] == '-'
+            || token[0] == '*' || token[0] == '/'));
+}
+
+static int isNumber(const std::string &token) {
+    if (token.empty())
+        return 0;
+    for (size_t i = 0; i < token.size(); i++)
+        if (!isdigit(static_cast<unsigned char>(token[i])))
+            return 0;
+    return 1;
+}
+
+static double processOperator(double a, double b, char operatorFound) {
+    double output = 0;
     switch (operatorFound) {
         case '+':
             output = (a + b);
@@ -32,6 +48,9 @@ double processOperator(double a, double b, char operatorFound) {
         case '*':
             output = (a * b);
             break ;
+        case '/':
+            output = (a / b);
+            break ;
     }
     return output;
 }
@@ -39,27 +58,27 @@ double processOperator(double a, double b, char operatorFound) {
 double RPN::process(std::string polishNotation) {
     std::istringstream ss(polishNotation);
     std::string token;
+
+    while (!this->result.empty())
+        this->result.pop();
     while (ss >> token) {
-        if (isdigit(token[0])) {
+        if (isNumber(token)) {
             this->result.push(std::atoi(token.c_str()));
-        } else {
-            if (result.size() >= 2) {
-                double b = this->result.top();
-                this->result.pop();
-                double a = this->result.top();
-                this->result.pop();
-                if (token[0] == '+' || token[0] == '-' || token[0] == '*') {
-                    this->result.push(processOperator(a, b, token[0]));
-                } else if (token [0] == '/') {
-                    if (b == 0) {
-                        throw std::runtime_error("Error :  A number can't be divided by Zero");
-                    }
-                    this->result.push(a / b);
-                }
-            } else {
+        } else if (isOperator(token)) {
+            if (this->result.size() < 2)
                 throw std::runtime_error("Error : Invalid reverse polish expression enter");
-            }
-        } 
+            double b = this->result.top();
+            this->result.pop();
+            double a = this->result.top();
+            this->result.pop();
+            if (token[0] == '/' && b == 0)
+                throw std::runtime_error("Error :  A number can't be divided by Zero");
+            this->result.push(processOperator(a, b, token[0]));
+        } else {
+            throw std::runtime_error("Error : Invalid token in expression => " + token);
+        }
     }
+    if (this->result.size() != 1)
+        throw std::runtime_error("Error : Invalid reverse polish expression enter");
     return this->result.top();
 }

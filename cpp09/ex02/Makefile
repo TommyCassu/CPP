@@ -1,8 +1,8 @@
-SRC 		= main.cpp BitcoinExchange.cpp
+SRC 		= main.cpp PmergeMe.cpp
 
 OBJS	 	= ${SRC:.cpp=.o}
 
-NAME		= btc
+NAME		= PmergeMe
 
 CC 			= c++
 
