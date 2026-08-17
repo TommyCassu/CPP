@@ -1,12 +1,12 @@
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe() {};
+PmergeMe::PmergeMe() {}
 
-PmergeMe::~PmergeMe() {};
+PmergeMe::~PmergeMe() {}
 
 PmergeMe::PmergeMe(const PmergeMe &src) {
     *this = src;
-};
+}
 
 PmergeMe &PmergeMe::operator=(const PmergeMe &src) {
     if (this != &src) {
@@ -14,7 +14,7 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &src) {
         this->_deq = src._deq;
     }
     return *this;
-};
+}
 
 bool    PmergeMe::isValidParam(char **av) {
     int i;

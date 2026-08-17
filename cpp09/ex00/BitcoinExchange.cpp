@@ -6,22 +6,25 @@
 
 BitcoinExchange::BitcoinExchange() {
     std::ifstream istrm("data.csv");
-    if (istrm.is_open()) {
-        std::string header;
-        std::getline(istrm, header, '\n');
-        for (std::string line; std::getline(istrm, line, '\n');) {
-            size_t separator = line.find(",");
-            if (separator != std::string::npos) {
-                std::string key = line.substr(0, separator);
-                std::string value = line.substr(separator + 1);
-                this->input_csv[key] = std::atof(value.c_str()) ;
-            }
-            else
-                std::cout << "Error: bad input in data.csv => " << line << std::endl;
-            
-        };
-    } else
-        std::cout << "Error : could not open database file data.csv" << std::endl;
+
+    if (!istrm.is_open())
+        throw std::runtime_error("Error : could not open database file data.csv");
+
+    std::string header;
+    std::getline(istrm, header, '\n');
+    for (std::string line; std::getline(istrm, line, '\n');) {
+        size_t separator = line.find(",");
+        if (separator != std::string::npos) {
+            std::string key = line.substr(0, separator);
+            std::string value = line.substr(separator + 1);
+            this->input_csv[key] = std::atof(value.c_str()) ;
+        }
+        else
+            std::cerr << "Error: bad input in data.csv => " << line << std::endl;
+    }
+
+    if (this->input_csv.empty())
+        throw std::runtime_error("Error : database data.csv is empty or unreadable");
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &btc) {
@@ -93,7 +96,7 @@ double BitcoinExchange::getDateValue(std::string date) {
     std::map<std::string, double>::iterator it = input_csv.upper_bound(date);
 
     if (it == input_csv.begin()) {
-        std::cout << "Error : Date too old, no info for this actual periode" << std::endl;
+        std::cerr << "Error : Date too old, no info for this actual periode" << std::endl;
         return -1.0f;
     }
     it--;
@@ -103,36 +106,36 @@ double BitcoinExchange::getDateValue(std::string date) {
 void    BitcoinExchange::processingData(std::string file) {
    std::ifstream istrm(file.c_str());
    if (!istrm.is_open()) {
-        std::cout << "Error : could not open file." << std::endl;
+        std::cerr << "Error : could not open file." << std::endl;
    } else {
     std::string line;
     std::getline(istrm, line, '\n');
     if (line != "date | value") {
-        std::cout << "Error : Bad format data enter => " << line << std::endl;
+        std::cerr << "Error : Bad format data enter => " << line << std::endl;
     }
     while(std::getline(istrm, line, '\n')) {
         size_t separator = line.find(" | ");
         if (separator == std::string::npos) {
-            std::cout << "Error : Bad input separator => " << line << std::endl;
+            std::cerr << "Error : Bad input separator => " << line << std::endl;
         } else {
             std::string key = line.substr(0, separator);
             std::string value = line.substr(separator + 3);
             if (checkDate(key)) {
-                std::cout << "Error : Bad date enter => " << key << std::endl;
+                std::cerr << "Error : Bad date enter => " << key << std::endl;
                 continue ;
             }
 
             if (!isValidNumber(value)) {
-                std::cout << "Error : Bad value enter (not a number) " << value << std::endl;
+                std::cerr << "Error : Bad value enter (not a number) " << value << std::endl;
                 continue ;
             }
 
             double valueFloat = atof(value.c_str());
 
             if (valueFloat < 0) {
-                std::cout << "Error : Bad value enter (negative number) " << value << std::endl;
+                std::cerr << "Error : Bad value enter (negative number) " << value << std::endl;
             } else if (valueFloat > 1000) {
-                std::cout << "Error : Bad value enter (Too large number) " << value << std::endl;
+                std::cerr << "Error : Bad value enter (Too large number) " << value << std::endl;
             } else {
                 double result = BitcoinExchange::getDateValue(key);
                 if (result >= 0) {

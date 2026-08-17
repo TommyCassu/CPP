@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <stdexcept>
 
 class BitcoinExchange {
     private:

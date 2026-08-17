@@ -28,11 +28,10 @@ static int isOperator(const std::string &token) {
 }
 
 static int isNumber(const std::string &token) {
-    if (token.empty())
+    if (token.size() != 1)
         return 0;
-    for (size_t i = 0; i < token.size(); i++)
-        if (!isdigit(static_cast<unsigned char>(token[i])))
-            return 0;
+    if (!isdigit(static_cast<unsigned char>(token[0])))
+        return 0;
     return 1;
 }
 
